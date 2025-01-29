@@ -25,7 +25,7 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.toLowerCase();
         computerChoice = computerChoice.toLowerCase();
-    
+        
         if (humanChoice == "rock" && computerChoice == "paper") {
             computerScore++;
             console.log("You lose! Paper beats rock");
@@ -44,6 +44,8 @@ function playGame() {
         } else if (humanChoice == "scissors" && computerChoice == "paper") {
             humanScore++;
             console.log("You win! Scissors beat paper");
+        } else if (humanChoice === computerChoice) {
+            console.log("It's a draw!");
         }
     }
     let i = 0;
@@ -52,7 +54,17 @@ function playGame() {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
+        console.log("Your score: " + humanScore + "\nComputer score: " + computerScore);
     }
 }
 
 playGame();
+
+if (humanScore > computerScore) {
+    console.log("You win!")
+} else if (humanScore === computerScore) {
+    console.log("It's a draw!")
+} else {
+    console.log("You lose!")
+}
+console.log("Your final score: " + humanScore + "\nComputer final score: " + computerScore);
